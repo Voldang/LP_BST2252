@@ -1,0 +1,9 @@
+*.pyc
+__pycache__
+*.sqlite3
+db_*
+lab*/blog/db_*
+*/blog/db_*
+.DS_Store
+*.log
+local_settings.py

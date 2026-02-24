@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Public Blog - создать статью</title>
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/article.css">
+</head>
+<body>
+    <div class="header">
+        <img src="{{ STATIC_URL }}img/dpb-logo.png" alt="Логотип" />
+    </div>
+    
+    <div class="content">
+        <h1>Написать статью</h1>
+        
+        {% if errors %}
+            <div style="color: red; margin-bottom: 10px;">{{ errors }}</div>
+        {% endif %}
+        
+        <form method="POST">
+            {% csrf_token %}
+            <p>
+                <input type="text" name="title" placeholder="Название статьи" value="{{ title }}" style="width: 100%; padding: 5px;">
+            </p>
+            <p>
+                <textarea name="text" placeholder="Текст статьи" style="width: 100%; height: 150px; padding: 5px;">{{ text }}</textarea>
+            </p>
+            <p>
+                <input type="submit" value="Сохранить" style="padding: 5px 15px;">
+            </p>
+        </form>
+        
+        <p><a href="/">← Все записи</a></p>
+    </div>
+</body>
+</html>
